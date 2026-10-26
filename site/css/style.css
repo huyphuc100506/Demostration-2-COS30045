@@ -1,0 +1,35 @@
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Inter,Arial,sans-serif;color:#1D1D1F;background:#fff;-webkit-font-smoothing:antialiased;letter-spacing:-.011em}
+.responsive-svg-container{margin:0 auto;width:100%;max-width:1200px}
+.responsive-svg-container svg{display:block;width:100%;height:auto}
+.bar{transition:fill .2s}.bar:hover{fill:#0058b0}
+.card{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.glass{background:rgba(255,255,255,.8);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px)}
+@media (prefers-reduced-transparency:reduce){.glass{background:#fff}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.card,.bar{transition:none}html{scroll-behavior:auto}}
+.flowers line{stroke:#33733c;stroke-width:7}.flowers circle{fill:#f0728b;stroke:#9c3553;stroke-width:4}
+.svg-heading{font:700 24px -apple-system,Arial,sans-serif;fill:#16324f}
+
+/* Exercise 5 charts, scoped so they don't override Exercise 4 */
+#ex5 .bar{fill:#0071E3;transition:fill .2s}#ex5 .bar:hover{fill:#0058b0}
+#ex5 .bar-label{font-size:16px;text-anchor:middle;fill:#1D1D1F}
+#ex5 .axis-label{font-size:16px;font-weight:600;fill:#1D1D1F}
+#ex5 .x-axis text{font-size:18px}#ex5 .y-axis text{font-size:14px}
+#ex5 text{font-family:inherit}#ex5 .tick text{fill:#86868B}#ex5 .domain,#ex5 .tick line{stroke:#d2d2d7}
+#ex5 .line{fill:none;stroke:#0071E3;stroke-width:2.5}
+#ex5 .area{fill:#0071E3;opacity:.12}#ex5 .dot{fill:#0071E3}
+#ex5 .line-label{fill:#0071E3;font-size:16px;font-weight:600}
+#ex5 .donut-label{font-size:18px;text-anchor:middle;fill:#1D1D1F;font-weight:600}
+
+/* Exercise 6 */
+#ex6 svg{display:block;width:100%;height:auto}
+#ex6 text{font-family:inherit;font-size:13px;fill:#1D1D1F}
+#ex6 .tick text{fill:#86868B}#ex6 .domain,#ex6 .tick line{stroke:#d2d2d7}
+#ex6 circle{transition:r .15s,opacity .15s}#ex6 circle:hover{r:6;opacity:1}
+.ex6-btn{font:500 13px -apple-system,"SF Pro Text",Arial,sans-serif;padding:7px 16px;border-radius:999px;border:1px solid #d2d2d7;background:#fff;color:#1D1D1F;cursor:pointer;transition:all .2s}
+.ex6-btn:hover{border-color:#0071E3;color:#0071E3}
+.ex6-btn.active{background:#0071E3;border-color:#0071E3;color:#fff}
+.ex6-tooltip{pointer-events:none;z-index:60;background:rgba(29,29,31,.92);color:#fff;font:12px/1.5 -apple-system,"SF Pro Text",Arial,sans-serif;padding:8px 12px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.2)}

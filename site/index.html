@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COS30045 – SVG &amp; D3 Exercises</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white antialiased">
+
+<!-- Nav: frosted glass (web approximation, not an Apple asset) -->
+<nav class="glass fixed top-0 inset-x-0 z-50 border-b border-black/5">
+  <div class="mx-auto max-w-6xl h-12 px-5 flex items-center justify-between text-xs">
+    <a href="#top" class="font-semibold text-[#1D1D1F] tracking-tight text-sm">COS30045</a>
+    <div class="flex gap-5 sm:gap-7 text-[#1D1D1F]/80">
+      <a href="#overview" class="hover:text-[#0071E3] transition-colors">Overview</a>
+      <a href="#ex41" class="hover:text-[#0071E3] transition-colors">Ex 4.1</a>
+      <a href="#ex43" class="hover:text-[#0071E3] transition-colors">Ex 4.3–4.7</a>
+      <a href="#ex5" class="hover:text-[#0071E3] transition-colors">Ex 5</a>
+      <a href="#ex6" class="hover:text-[#0071E3] transition-colors">Ex 6</a>
+      <a href="#specs" class="hover:text-[#0071E3] transition-colors">Specs</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header id="top" class="pt-32 pb-20 px-5 text-center bg-gradient-to-b from-white to-[#F5F5F7]">
+  <p class="text-[#86868B] text-sm font-medium mb-3">Data Visualisation · Demonstration 2</p>
+  <h1 class="text-5xl sm:text-7xl font-semibold tracking-tighter leading-[1.05] max-w-4xl mx-auto">From shapes<br>to data.</h1>
+  <p class="mt-6 text-lg sm:text-2xl text-[#86868B] max-w-2xl mx-auto leading-snug">An SVG house and garden, then a D3 bar chart of TV brands built from a CSV, one step at a time.</p>
+  <div class="mt-9 flex items-center justify-center gap-6">
+    <a href="#ex43" class="bg-[#0071E3] hover:bg-[#0077ED] text-white rounded-full px-6 py-3 text-sm font-medium transition-colors">See the chart</a>
+    <a href="#ex41" class="text-[#0071E3] text-sm font-medium hover:underline">View the SVG house &rarr;</a>
+  </div>
+  <!-- Floating "device" mockup placeholder -->
+  <div class="mt-16 mx-auto max-w-3xl rounded-[2rem] bg-white border border-black/5 shadow-[0_40px_80px_-20px_rgba(0,0,0,.18)] p-3">
+    <div class="rounded-[1.5rem] bg-[#F5F5F7] aspect-[16/9] flex items-end gap-2 sm:gap-3 p-6 sm:p-10" aria-hidden="true">
+      <div class="flex-1 rounded-t-lg bg-[#0071E3]" style="height:100%"></div>
+      <div class="flex-1 rounded-t-lg bg-[#0071E3]/80" style="height:72%"></div>
+      <div class="flex-1 rounded-t-lg bg-[#0071E3]/60" style="height:30%"></div>
+      <div class="flex-1 rounded-t-lg bg-[#0071E3]/45" style="height:18%"></div>
+      <div class="flex-1 rounded-t-lg bg-[#0071E3]/30" style="height:12%"></div>
+      <div class="flex-1 rounded-t-lg bg-[#0071E3]/20" style="height:8%"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- Bento -->
+<section id="overview" class="bg-[#F5F5F7] px-5 pb-24">
+  <div class="mx-auto max-w-6xl">
+    <h2 class="reveal text-3xl sm:text-5xl font-semibold tracking-tight text-center pt-4 pb-12">What I built.</h2>
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-4">
+      <a href="#ex41" class="card reveal md:col-span-4 rounded-3xl bg-white border border-black/5 p-8 sm:p-10 min-h-[260px] flex flex-col justify-end">
+        <span class="text-[#0071E3] text-sm font-medium">Exercise 4.1</span>
+        <h3 class="text-3xl font-semibold tracking-tight mt-1">SVG primitives.</h3>
+        <p class="text-[#86868B] mt-2 max-w-md">A house and garden drawn with rect, circle, line, ellipse, polygon, polyline, path and text, with windows grouped using &lt;g&gt; and translate.</p>
+      </a>
+      <a href="#ex43" class="card reveal md:col-span-2 rounded-3xl bg-white border border-black/5 p-8 min-h-[260px] flex flex-col justify-end">
+        <span class="text-[#0071E3] text-sm font-medium">Exercise 4.4</span>
+        <h3 class="text-2xl font-semibold tracking-tight mt-1">CSV into D3.</h3>
+        <p class="text-[#86868B] mt-2 text-sm">d3.csv() with typed rows, sorted by count.</p>
+      </a>
+      <a href="#ex43" class="card reveal md:col-span-2 rounded-3xl bg-white border border-black/5 p-8 min-h-[240px] flex flex-col justify-end">
+        <span class="text-[#0071E3] text-sm font-medium">Exercise 4.5</span>
+        <h3 class="text-2xl font-semibold tracking-tight mt-1">Data binding.</h3>
+        <p class="text-[#86868B] mt-2 text-sm">selectAll, data and join create one group per brand.</p>
+      </a>
+      <a href="#ex43" class="card reveal md:col-span-4 rounded-3xl bg-[#1D1D1F] text-white p-8 sm:p-10 min-h-[240px] flex flex-col justify-end">
+        <span class="text-[#2997FF] text-sm font-medium">Exercises 4.6 &amp; 4.7</span>
+        <h3 class="text-3xl font-semibold tracking-tight mt-1">Scales and labels.</h3>
+        <p class="text-white/60 mt-2 max-w-md">scaleLinear sizes the bars, scaleBand spaces the brands, and each bar gets a name and a value.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Exercise 4.1 -->
+<section id="ex41" class="px-5 py-24">
+  <div class="mx-auto max-w-6xl">
+    <p class="reveal text-[#0071E3] text-sm font-medium text-center">Exercise 4.1</p>
+    <h2 class="reveal text-3xl sm:text-5xl font-semibold tracking-tight text-center mt-2">SVG house and garden.</h2>
+    <p class="reveal text-[#86868B] text-lg text-center max-w-2xl mx-auto mt-4">Every shape type, one scene. The origin sits at the top-left; x grows right and y grows down.</p>
+
+    <div class="reveal mt-12 rounded-3xl bg-[#F5F5F7] p-3 sm:p-5">
+      <svg id="house-svg" viewBox="0 0 900 600" class="w-full h-auto rounded-2xl" role="img" aria-labelledby="svgTitle svgDesc">
+        <title id="svgTitle">House and garden created with SVG primitives</title>
+        <desc id="svgDesc">A house with grouped windows, roof, chimney, door, path, tree, flowers, fence, clouds, sun and labels.</desc>
+        <rect x="0" y="0" width="900" height="390" fill="#a8dcf0"/>
+        <rect x="0" y="390" width="900" height="210" fill="#68a84f"/>
+        <circle cx="760" cy="95" r="52" fill="#ffd84d" stroke="#e8aa24" stroke-width="5"/>
+        <g fill="#fff" opacity="0.9">
+          <ellipse cx="130" cy="95" rx="62" ry="25"/><ellipse cx="180" cy="93" rx="48" ry="30"/><ellipse cx="90" cy="105" rx="40" ry="22"/>
+        </g>
+        <line x1="55" y1="330" x2="55" y2="455" stroke="#75442d" stroke-width="18"/>
+        <circle cx="55" cy="300" r="54" fill="#3f843e"/><circle cx="100" cy="310" r="47" fill="#4e9745"/><circle cx="20" cy="315" r="43" fill="#4b9345"/>
+        <polygon points="275,250 475,70 675,250" fill="#b85f42" stroke="#7c3d2d" stroke-width="6"/>
+        <rect x="590" y="105" width="42" height="100" fill="#6d392d" stroke="#4d271f" stroke-width="4"/>
+        <rect x="305" y="245" width="340" height="245" rx="4" fill="#e7b56a" stroke="#69452e" stroke-width="7"/>
+        <g id="windows" fill="#bde8f5" stroke="#53433b" stroke-width="6">
+          <g transform="translate(350,295)"><rect x="0" y="0" width="85" height="88"/><line x1="42.5" y1="0" x2="42.5" y2="88"/><line x1="0" y1="44" x2="85" y2="44"/></g>
+          <g transform="translate(515,295)"><rect x="0" y="0" width="85" height="88"/><line x1="42.5" y1="0" x2="42.5" y2="88"/><line x1="0" y1="44" x2="85" y2="44"/></g>
+        </g>
+        <rect x="440" y="380" width="72" height="110" rx="5" fill="#8f513a" stroke="#69402f" stroke-width="5"/>
+        <circle cx="495" cy="437" r="6" fill="#f2c14e"/>
+        <path d="M 442 490 C 410 520, 390 535, 360 600 L 545 600 C 520 550, 495 520, 510 490 Z" fill="#e5c28a" stroke="#c69c5d" stroke-width="4"/>
+        <g stroke="#744a32" stroke-width="7" fill="none"><line x1="700" y1="365" x2="870" y2="365"/><line x1="700" y1="425" x2="870" y2="425"/></g>
+        <g fill="#f2e5c4" stroke="#76513a" stroke-width="3">
+          <polygon points="710,330 725,345 725,470 695,470 695,345"/><polygon points="760,330 775,345 775,470 745,470 745,345"/><polygon points="810,330 825,345 825,470 795,470 795,345"/><polygon points="860,330 875,345 875,470 845,470 845,345"/>
+        </g>
+        <g class="flowers"><line x1="150" y1="475" x2="150" y2="520"/><circle cx="150" cy="470" r="16"/><line x1="210" y1="470" x2="210" y2="520"/><circle cx="210" cy="465" r="16"/><line x1="750" y1="505" x2="750" y2="550"/><circle cx="750" cy="500" r="16"/></g>
+        <polyline points="120,560 150,530 180,560 210,530 240,560" fill="none" stroke="#356b37" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="450" y="40" text-anchor="middle" class="svg-heading">My SVG House &amp; Garden</text>
+      </svg>
+    </div>
+
+    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="card reveal rounded-3xl bg-[#F5F5F7] p-4 sm:p-6">
+        <h3 class="text-xl font-semibold tracking-tight px-2 pt-2">Coordinate system</h3>
+        <p class="text-[#86868B] text-sm px-2 mt-1 mb-4">Each primitive annotated with the attributes that place it.</p>
+        <img src="images/svg-coordinate-annotations.png" alt="Annotated diagram explaining SVG primitive coordinates" class="w-full h-auto rounded-2xl bg-white">
+      </div>
+      <div class="card reveal rounded-3xl bg-[#1D1D1F] p-6 sm:p-8 flex flex-col">
+        <h3 class="text-xl font-semibold tracking-tight text-white">Group and transform</h3>
+        <p class="text-white/60 text-sm mt-1">Both windows live inside one &lt;g&gt;, so they share fill and stroke. Each is positioned with translate.</p>
+        <pre class="mt-5 overflow-auto rounded-2xl bg-black/40 p-4 text-[13px] leading-relaxed text-[#E8E8ED] font-mono"><code>&lt;g id="windows" fill="#bde8f5"
+   stroke="#53433b" stroke-width="6"&gt;
+  &lt;g transform="translate(350,295)"&gt;…&lt;/g&gt;
+  &lt;g transform="translate(515,295)"&gt;…&lt;/g&gt;
+&lt;/g&gt;</code></pre>
+        <img src="images/dom.png">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Exercises 4.3 - 4.7 -->
+<section id="ex43" class="bg-[#F5F5F7] px-5 py-24">
+  <div class="mx-auto max-w-6xl">
+    <p class="reveal text-[#0071E3] text-sm font-medium text-center">Exercises 4.3 – 4.7</p>
+    <h2 class="reveal text-3xl sm:text-5xl font-semibold tracking-tight text-center mt-2">TV models by brand.</h2>
+    <p class="reveal text-[#86868B] text-lg text-center max-w-2xl mx-auto mt-4">Loaded from <code class="text-[#1D1D1F]">exercise4_data.csv</code>, sorted, bound to rectangles and scaled to fit.</p>
+    <div class="reveal mt-12 rounded-3xl bg-white border border-black/5 p-4 sm:p-10">
+      <div id="ex4-chart" class="responsive-svg-container"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Exercise 5 -->
+<section id="ex5" class="px-5 py-24">
+  <div class="mx-auto max-w-6xl">
+    <p class="reveal text-[#0071E3] text-sm font-medium text-center">Exercise 5</p>
+    <h2 class="reveal text-3xl sm:text-5xl font-semibold tracking-tight text-center mt-2">Three charts, three questions.</h2>
+    <p class="reveal text-[#86868B] text-lg text-center max-w-2xl mx-auto mt-4">A vertical bar chart with axes, a line chart with area and points, and a donut chart, each in its own script.</p>
+    <div class="mt-12 space-y-4">
+      <div class="card reveal rounded-3xl bg-[#F5F5F7] p-5 sm:p-10">
+        <h3 class="text-2xl font-semibold tracking-tight">Which screen type uses the most energy?</h3>
+        <p class="text-[#86868B] text-sm mt-1 mb-6">Average annual energy use of 55-inch TVs by screen technology.</p>
+        <div id="bar-chart" class="rounded-2xl bg-white p-2 sm:p-4"></div>
+      </div>
+      <div class="card reveal rounded-3xl bg-[#F5F5F7] p-5 sm:p-10">
+        <h3 class="text-2xl font-semibold tracking-tight">How has electricity cost changed?</h3>
+        <p class="text-[#86868B] text-sm mt-1 mb-6">Average spot price in Australia, 1998–2024.</p>
+        <div id="line-chart" class="rounded-2xl bg-white p-2 sm:p-4"></div>
+      </div>
+      <div class="card reveal rounded-3xl bg-[#F5F5F7] p-5 sm:p-10">
+        <h3 class="text-2xl font-semibold tracking-tight">What sizes of TV are on the market?</h3>
+        <p class="text-[#86868B] text-sm mt-1 mb-6">Share of models: small &lt; 40", medium 40–65", large &gt; 65".</p>
+        <div id="donut-chart" class="rounded-2xl bg-white p-2 sm:p-4"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Exercise 6 -->
+<section id="ex6" class="bg-[#F5F5F7] px-5 py-24">
+  <div class="mx-auto max-w-6xl">
+    <p class="reveal text-[#0071E3] text-sm font-medium text-center">Exercise 6</p>
+    <h2 class="reveal text-3xl sm:text-5xl font-semibold tracking-tight text-center mt-2">Interactive charts.</h2>
+    <p class="reveal text-[#86868B] text-lg text-center max-w-2xl mx-auto mt-4">Filter both charts, re-scale the histogram axis, and hover to inspect individual TVs.</p>
+    <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="card reveal rounded-3xl bg-white border border-black/5 p-6 sm:p-8">
+        <p class="text-[#0071E3] text-sm font-medium">Exercises 6.1 &amp; 6.2</p>
+        <h3 class="text-2xl font-semibold tracking-tight mt-1">Energy use distribution.</h3>
+        <p class="text-[#86868B] text-sm mt-1">Filter by screen technology and size (small &lt; 40", medium 40–65", large &gt; 65"). The y axis re-scales; hover a bar for its count.</p>
+        <div id="filters" class="flex flex-wrap gap-2 mt-5"></div>
+        <div id="size-filters" class="flex flex-wrap gap-2 mt-2 mb-4"></div>
+        <div id="histogram"></div>
+      </div>
+      <div class="card reveal rounded-3xl bg-white border border-black/5 p-6 sm:p-8">
+        <p class="text-[#0071E3] text-sm font-medium">Exercises 6.3 &amp; 6.4</p>
+        <h3 class="text-2xl font-semibold tracking-tight mt-1">Size vs energy.</h3>
+        <p class="text-[#86868B] text-sm mt-1">Each dot is one TV model. Filter by screen technology; hover for brand, model, size and consumption.</p>
+        <div id="scatter-filters" class="flex flex-wrap gap-2 mt-5 mb-4"></div>
+        <div id="scatterplot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Specs -->
+<section id="specs" class="px-5 py-24">
+  <div class="mx-auto max-w-6xl">
+    <h2 class="reveal text-3xl sm:text-5xl font-semibold tracking-tight text-center">The numbers.</h2>
+    <div class="reveal mt-14 grid grid-cols-2 lg:grid-cols-4 gap-px bg-black/10 rounded-3xl overflow-hidden border border-black/10">
+      <div class="bg-white p-8 sm:p-10"><p class="text-5xl sm:text-6xl font-semibold tracking-tighter" id="stat-brands">–</p><p class="text-[#86868B] text-sm mt-2">Brands in the data set</p></div>
+      <div class="bg-white p-8 sm:p-10"><p class="text-5xl sm:text-6xl font-semibold tracking-tighter" id="stat-total">–</p><p class="text-[#86868B] text-sm mt-2">TV models counted</p></div>
+      <div class="bg-white p-8 sm:p-10"><p class="text-5xl sm:text-6xl font-semibold tracking-tighter capitalize" id="stat-top">–</p><p class="text-[#86868B] text-sm mt-2">Brand with the most models</p></div>
+      <div class="bg-white p-8 sm:p-10"><p class="text-5xl sm:text-6xl font-semibold tracking-tighter text-[#0071E3]" id="stat-share">–</p><p class="text-[#86868B] text-sm mt-2">Share held by that brand</p></div>
+    </div>
+    <div class="reveal mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+      <div class="rounded-3xl bg-[#F5F5F7] p-6"><p class="font-semibold">Library</p><p class="text-[#86868B] mt-1">D3 v7</p></div>
+      <div class="rounded-3xl bg-[#F5F5F7] p-6"><p class="font-semibold">Scales</p><p class="text-[#86868B] mt-1">scaleLinear (x), scaleBand (y)</p></div>
+      <div class="rounded-3xl bg-[#F5F5F7] p-6"><p class="font-semibold">Data</p><p class="text-[#86868B] mt-1">data/exercise4_data.csv</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="bg-[#F5F5F7] px-5 pt-14 pb-10 text-xs text-[#86868B]">
+  <div class="mx-auto max-w-6xl">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 pb-10 border-b border-black/10">
+      <div><p class="font-semibold text-[#1D1D1F] mb-3">Exercises</p><ul class="space-y-2"><li><a class="hover:underline" href="#ex41">4.1 SVG house</a></li><li><a class="hover:underline" href="#ex43">4.3 – 4.7 Bar chart</a></li><li><a class="hover:underline" href="#ex5">5 Multi-chart</a></li><li><a class="hover:underline" href="#ex6">6 Interactivity</a></li></ul></div>
+      <div><p class="font-semibold text-[#1D1D1F] mb-3">Page</p><ul class="space-y-2"><li><a class="hover:underline" href="#overview">Overview</a></li><li><a class="hover:underline" href="#specs">Specs</a></li></ul></div>
+      <div><p class="font-semibold text-[#1D1D1F] mb-3">Tools</p><ul class="space-y-2"><li>D3.js v7</li><li>Tailwind CSS</li></ul></div>
+      <div><p class="font-semibold text-[#1D1D1F] mb-3">AI use</p><p class="leading-relaxed">Generative AI (Claude) helped draft the SVG, D3 code and page design. The code was reviewed and tested by the student.</p></div>
+    </div>
+    <p class="pt-6">© 2026 COS30045 Data Visualisation · Swinburne University of Technology</p>
+  </div>
+</footer>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/ex5-bar-chart.js"></script>
+<script src="js/ex5-line-chart.js"></script>
+<script src="js/ex5-donut-chart.js"></script>
+<script src="js/ex6.js"></script>
+</body>
+</html>
